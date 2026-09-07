@@ -196,6 +196,54 @@ Open `http://localhost:3000` in your web browser. You will see the **CLRMS** lan
 
 ---
 
+---
+
+## 📊 STEP 8: Role-Specific Analytics Dashboards & Executive Reports Engine
+
+CLRMS provides a comprehensive financial analytics and executive reporting suite built on real-time MongoDB aggregations and strict RBAC data restrictions.
+
+### 🌟 Key Step 8 Features:
+1. **Executive Command Center (`/admin/analytics`)**:
+   - Portfolio health metrics (Total Outstanding, Total Overdue, Delinquency counts, Settled & Written-off volumes, Overall Recovery Rate).
+   - Dynamic 0–30, 31–60, 61–90, 90+ DPD Aging Bar distribution.
+   - Pure SVG Ring/Donut Charts for Status & Loan Type breakdowns (zero external charting bloat, 100% hydration-safe).
+   - Regional performance scorecard with recovery rates.
+   - Agent productivity rankings and PTP conversion leaderboard.
+2. **Supervisor Team Analytics (`/supervisor/analytics`)**:
+   - Scoped territory metrics (managed loans, overdue supervised, team recovery rate).
+   - Agent workload and collection productivity tables.
+   - Territory settlement & legal escalation queues.
+3. **Collection Agent Personal Scorecard (`/agent/analytics`)**:
+   - Strict personal data isolation (assigned loan portfolio, recovered amounts, PTP fulfillment rate).
+   - Channel breakdown (Call, Visit, SMS, WhatsApp, Email, Notice).
+   - Actionable follow-up schedule (Due Today, Overdue, Upcoming).
+4. **Legal Recovery & Litigation Analytics (`/legal/analytics`)**:
+   - Legal action type and forum distribution (Sec 138, SARFAESI, Arbitration, DRT, Civil Suit).
+   - Litigation stage tracking (Notice, Filed, Summons, Hearing, Order, Execution).
+   - Statutory notice delivery and response audit funnel.
+   - Upcoming court hearings agenda.
+   - Authorized debt write-offs and waiver loss audits.
+5. **Executive Reports & RFC 4180 CSV Export (`/admin/reports`)**:
+   - 7 standardized reports:
+     - `portfolio-summary` (Executive Portfolio Summary)
+     - `collection-performance` (Collection Performance & Receipts)
+     - `agent-performance` (Agent Productivity & Ranking)
+     - `delinquency-dpd` (Delinquency & DPD Aging Matrix)
+     - `ptp-report` (Promise-to-Pay Conversion)
+     - `settlement-report` (Settlement Approvals & Waivers)
+     - `legal-recovery` (Legal & Litigation Pipeline)
+   - Real-time on-screen preview table with dynamic pagination and column formatting.
+   - One-click native RFC 4180 compliant CSV export stream.
+
+### 🔌 Analytics REST API Endpoints:
+- `GET /api/v1/analytics/admin?startDate=&endDate=` — Global executive KPIs (Admin only)
+- `GET /api/v1/analytics/supervisor?startDate=&endDate=` — Scoped team analytics (Supervisor & Admin)
+- `GET /api/v1/analytics/agent?startDate=&endDate=` — Personal collector analytics (Agent & Admin)
+- `GET /api/v1/analytics/legal?startDate=&endDate=` — Litigation pipeline & write-off audit (Legal Head & Admin)
+- `GET /api/v1/analytics/reports/:reportType?format=json|csv` — On-screen preview or downloadable CSV attachment
+
+---
+
 ## 📈 Development Roadmap
 
 - [x] **STEP 0**: Project planning and documentation
@@ -205,8 +253,8 @@ Open `http://localhost:3000` in your web browser. You will see the **CLRMS** lan
 - [x] **STEP 4**: Loan accounts & DPD calculation engine
 - [x] **STEP 5**: Supervisor workload & account assignment
 - [x] **STEP 6**: Collection Agent workspace & PTP tracking
-- [x] **STEP 7**: Settlement, escalation & legal recovery workflow *(Completed)*
-- [ ] **STEP 8**: Role-specific dashboards & recovery analytics
+- [x] **STEP 7**: Settlement, escalation & legal recovery workflow
+- [x] **STEP 8**: Role-specific dashboards & recovery analytics *(Completed)*
 - [ ] **STEP 9**: Audit logs, security hardening & automated tests
 - [ ] **STEP 10**: Final documentation, deployment guide & demo preparation
 

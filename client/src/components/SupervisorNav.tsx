@@ -12,6 +12,8 @@ import {
   Gavel,
   LogOut,
   Sparkles,
+  BarChart3,
+  FileSpreadsheet,
 } from 'lucide-react';
 
 export const SupervisorNav = () => {
@@ -26,9 +28,11 @@ export const SupervisorNav = () => {
 
   const navItems = [
     { label: 'Overview', href: '/supervisor', icon: LayoutDashboard },
+    { label: 'Team Analytics', href: '/supervisor/analytics', icon: BarChart3 },
     { label: 'Workload & Assignments', href: '/supervisor/workload', icon: Users2 },
     { label: 'Settlement Reviews', href: '/supervisor/settlements', icon: Scale },
     { label: 'Legal Escalations', href: '/supervisor/legal', icon: Gavel },
+    { label: 'Reports & Exports', href: '/admin/reports', icon: FileSpreadsheet },
   ];
 
   return (

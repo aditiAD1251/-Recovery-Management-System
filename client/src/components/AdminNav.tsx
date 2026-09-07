@@ -13,6 +13,8 @@ import {
   LogOut,
   CircleDollarSign,
   Users2,
+  BarChart3,
+  FileSpreadsheet,
 } from 'lucide-react';
 
 export const AdminNav = () => {
@@ -27,6 +29,8 @@ export const AdminNav = () => {
 
   const navItems = [
     { label: 'Overview', href: '/admin', icon: LayoutDashboard },
+    { label: 'Analytics', href: '/admin/analytics', icon: BarChart3 },
+    { label: 'Reports & Exports', href: '/admin/reports', icon: FileSpreadsheet },
     { label: 'Loans & DPD', href: '/admin/loans', icon: CircleDollarSign },
     { label: 'Workloads', href: '/supervisor/workload', icon: Users2 },
     { label: 'Users', href: '/admin/users', icon: Users },

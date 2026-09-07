@@ -11,7 +11,8 @@ import {
   FileText,
   AlertOctagon,
   LogOut,
-  Sparkles,
+  BarChart3,
+  FileSpreadsheet,
 } from 'lucide-react';
 
 export const LegalNav = ({
@@ -29,6 +30,12 @@ export const LegalNav = ({
     logout();
     router.replace('/login');
   };
+
+  const navLinks = [
+    { label: 'Litigation Workspace', href: '/legal', icon: Gavel },
+    { label: 'Legal Analytics', href: '/legal/analytics', icon: BarChart3 },
+    { label: 'Reports & Exports', href: '/admin/reports', icon: FileSpreadsheet },
+  ];
 
   const tabs = [
     { key: 'CASES', label: 'Litigation & Cases', icon: Gavel },
@@ -75,7 +82,32 @@ export const LegalNav = ({
           </div>
         </div>
 
-        {/* Navigation Tabs */}
+        {/* Primary Page Navigation */}
+        <div className="flex items-center justify-between py-2 border-b border-slate-800/40">
+          <nav className="flex items-center gap-1 overflow-x-auto scrollbar-none">
+            {navLinks.map((item) => {
+              const Icon = item.icon;
+              const isActive = pathname === item.href;
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition duration-150 ${
+                    isActive
+                      ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30 shadow-sm'
+                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 border border-transparent'
+                  }`}
+                >
+                  <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-purple-400' : 'text-slate-500'}`} />
+                  <span>{item.label}</span>
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
+
+        {/* Workspace Sub-tabs when on /legal */}
         {setActiveTab && (
           <nav className="flex items-center gap-1 overflow-x-auto py-2 scrollbar-none">
             {tabs.map((tab) => {
@@ -86,13 +118,13 @@ export const LegalNav = ({
                 <button
                   key={tab.key}
                   onClick={() => setActiveTab(tab.key as any)}
-                  className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition duration-150 ${
+                  className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition duration-150 ${
                     isActive
-                      ? 'bg-purple-500/15 text-purple-300 border border-purple-500/30 shadow-sm'
-                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 border border-transparent'
+                      ? 'bg-purple-950/60 text-purple-300 border border-purple-600/40 shadow-sm'
+                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40 border border-transparent'
                   }`}
                 >
-                  <Icon className={`w-4 h-4 ${isActive ? 'text-purple-400' : 'text-slate-500'}`} />
+                  <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-purple-400' : 'text-slate-500'}`} />
                   <span>{tab.label}</span>
                 </button>
               );

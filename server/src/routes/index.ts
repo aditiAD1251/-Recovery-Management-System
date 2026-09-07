@@ -11,6 +11,7 @@ import collectionAttemptRoutes from './collectionAttemptRoutes.js';
 import promiseToPayRoutes from './promiseToPayRoutes.js';
 import settlementRoutes from './settlementRoutes.js';
 import legalRoutes from './legalRoutes.js';
+import analyticsRoutes from './analyticsRoutes.js';
 
 const apiRouter = Router();
 
@@ -26,6 +27,7 @@ apiRouter.use('/collection-attempts', collectionAttemptRoutes);
 apiRouter.use('/promises-to-pay', promiseToPayRoutes);
 apiRouter.use('/settlements', settlementRoutes);
 apiRouter.use('/legal', legalRoutes);
+apiRouter.use('/analytics', analyticsRoutes);
 apiRouter.use('/test', testRoutes);
 
 export default apiRouter;

@@ -12,6 +12,12 @@ export interface HealthCheckResponse {
   };
 }
 
+export interface ApiResponse<T = any> {
+  success: boolean;
+  message?: string;
+  data: T;
+}
+
 export type ConnectionState = 'idle' | 'loading' | 'connected' | 'error';
 
 export * from './auth';
@@ -22,6 +28,7 @@ export * from './collectionAttempt';
 export * from './promiseToPay';
 export * from './settlement';
 export * from './legal';
+export * from './analytics';
 
 
 

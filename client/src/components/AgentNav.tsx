@@ -10,6 +10,7 @@ import {
   LogOut,
   CalendarCheck,
   ShieldAlert,
+  TrendingUp,
 } from 'lucide-react';
 
 interface AgentNavProps {
@@ -29,6 +30,7 @@ export const AgentNav: React.FC<AgentNavProps> = ({ employeeCode, regionName }) 
 
   const navItems = [
     { label: 'My Assigned Loans', href: '/agent', icon: LayoutDashboard },
+    { label: 'My Performance', href: '/agent/analytics', icon: TrendingUp },
   ];
 
   return (

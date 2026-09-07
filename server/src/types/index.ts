@@ -26,6 +26,7 @@ export * from './collectionAttempt.js';
 export * from './promiseToPay.js';
 export * from './settlement.js';
 export * from './legal.js';
+export * from './analytics.js';
 
 
 

@@ -28,7 +28,8 @@ export const connectDatabase = async (): Promise<void> => {
     });
 
     await mongoose.connect(config.mongodbUri, {
-      serverSelectionTimeoutMS: 5000,
+      family: 4,
+      serverSelectionTimeoutMS: 15000,
     });
 
     dbStatus = 'connected';
